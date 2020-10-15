@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'XYZ',
+      title: 'WallpaperHub',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primaryColor: Colors.teal[400],
       ),
       home: Home(),
     );
