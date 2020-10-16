@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:wallpaper_app/data/model/model.dart';
 
 Widget brandName() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      Text(
-        'Wallpaper',
-        style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w700),
-      ),
-      Text('Hub',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700))
-    ],
-  );
+  return RichText(
+      text: TextSpan(
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
+          children: <TextSpan>[
+        TextSpan(text: "Wallpaper", style: TextStyle(color: Colors.black)),
+        TextSpan(text: "Hub", style: TextStyle(color: Colors.white)),
+      ]));
 }
 
 Widget WallpapersList({List<Wallpaper_model> wallpapers, context}) {

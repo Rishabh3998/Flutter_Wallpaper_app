@@ -6,6 +6,8 @@ import 'package:wallpaper_app/data/data.dart';
 import 'package:wallpaper_app/data/model/categoriesmodel.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallpaper_app/data/model/model.dart';
+import 'package:wallpaper_app/views/category.dart';
+import 'package:wallpaper_app/views/search.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,6 +17,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<CategoriesModel> categories = new List();
   List<Wallpaper_model> wallpapers = new List();
+  TextEditingController searchController = new TextEditingController();
 
   getTrendingWallpapers() async {
     var response = await http.get(
@@ -63,11 +66,21 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Expanded(
                       child: TextField(
+                        controller: searchController,
                         decoration: InputDecoration(
                             hintText: "Search", border: InputBorder.none),
                       ),
                     ),
-                    Icon(Icons.search)
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Search(
+                                        searchQuery: searchController.text,
+                                      )));
+                        },
+                        child: Container(child: Icon(Icons.search)))
                   ],
                 ),
               ),
@@ -108,33 +121,44 @@ class CategoriesTile extends StatelessWidget {
   CategoriesTile({@required this.title, @required this.imgUrl});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 4),
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                imgUrl,
-                height: 50,
-                width: 100,
-                fit: BoxFit.cover,
-              )),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.black26, borderRadius: BorderRadius.circular(8)),
-            height: 50,
-            width: 100,
-            alignment: Alignment.center,
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18),
-            ),
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Category(
+                      categorieName: title.toLowerCase(),
+                    )));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 4),
+        child: Stack(
+          children: <Widget>[
+            ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  imgUrl,
+                  height: 50,
+                  width: 100,
+                  fit: BoxFit.cover,
+                )),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.black26,
+                  borderRadius: BorderRadius.circular(8)),
+              height: 50,
+              width: 100,
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
