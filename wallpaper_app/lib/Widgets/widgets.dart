@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper_app/data/model/model.dart';
+import 'package:wallpaper_app/views/imageview.dart';
 
 Widget brandName() {
-  return RichText(
-      text: TextSpan(
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
-          children: <TextSpan>[
-        TextSpan(text: "Wallpaper", style: TextStyle(color: Colors.black)),
-        TextSpan(text: "Hub", style: TextStyle(color: Colors.white)),
-      ]));
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      RichText(
+          text: TextSpan(
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+              children: <TextSpan>[
+            TextSpan(
+                text: "Wallpaper",
+                style: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.w800)),
+            TextSpan(text: "Hub", style: TextStyle(color: Colors.white)),
+          ])),
+    ],
+  );
 }
 
 Widget WallpapersList({List<Wallpaper_model> wallpapers, context}) {
@@ -23,12 +32,25 @@ Widget WallpapersList({List<Wallpaper_model> wallpapers, context}) {
       crossAxisSpacing: 6.0,
       children: wallpapers.map((wallpaper) {
         return GridTile(
-          child: Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                wallpaper.src.portrait,
-                fit: BoxFit.cover,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ImageView(
+                            imgUrl: wallpaper.src.portrait,
+                          )));
+            },
+            child: Hero(
+              tag: wallpaper.src.portrait,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.network(
+                    wallpaper.src.portrait,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ),

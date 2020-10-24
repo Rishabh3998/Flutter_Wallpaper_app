@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:wallpaper_app/Widgets/widgets.dart';
 import 'package:wallpaper_app/data/data.dart';
@@ -47,6 +46,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: Drawer(
+      //     child: Text(
+      //   "LogIn",
+      //   textAlign: TextAlign.center,
+      // )),
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: brandName(),
@@ -71,7 +75,7 @@ class _HomeState extends State<Home> {
                             hintText: "Search", border: InputBorder.none),
                       ),
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {
                           Navigator.push(
                               context,

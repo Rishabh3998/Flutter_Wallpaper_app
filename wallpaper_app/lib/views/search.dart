@@ -69,7 +69,7 @@ class _SearchState extends State<Search> {
                             hintText: "Search", border: InputBorder.none),
                       ),
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {
                           getSearchWallpapers(searchController.text);
                         },
