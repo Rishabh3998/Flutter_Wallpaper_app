@@ -3,21 +3,15 @@ import 'package:wallpaper_app/data/model/model.dart';
 import 'package:wallpaper_app/views/imageview.dart';
 
 Widget brandName() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      RichText(
-          text: TextSpan(
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-              children: <TextSpan>[
-            TextSpan(
-                text: "Wallpaper",
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.w800)),
-            TextSpan(text: "Hub", style: TextStyle(color: Colors.white)),
-          ])),
-    ],
-  );
+  return RichText(
+      text: TextSpan(
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+          children: <TextSpan>[
+        TextSpan(
+            text: "TeN",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800)),
+        TextSpan(text: "eT", style: TextStyle(color: Colors.white)),
+      ]));
 }
 
 Widget WallpapersList({List<Wallpaper_model> wallpapers, context}) {
