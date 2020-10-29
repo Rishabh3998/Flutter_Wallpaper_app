@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TeNeT',
       theme: ThemeData(
-        primaryColor: Colors.teal[400],
+        primaryColor: Colors.black,
       ),
       home: Home(),
     );

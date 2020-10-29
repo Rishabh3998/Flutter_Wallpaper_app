@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:wallpaper_app/Loginandsignup/login.dart';
 import 'package:wallpaper_app/Widgets/widgets.dart';
 import 'package:wallpaper_app/data/data.dart';
 import 'package:wallpaper_app/data/model/categoriesmodel.dart';
@@ -20,7 +21,7 @@ class _HomeState extends State<Home> {
 
   getTrendingWallpapers() async {
     var response = await http.get(
-        "https://api.pexels.com/v1/curated?per_page=50",
+        "https://api.pexels.com/v1/curated?per_page=26",
         headers: {"Authorization": apiKey});
 
     // print(response.body.toString());
@@ -46,17 +47,64 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: Drawer(
-      //     child: Text(
-      //   "LogIn",
-      //   textAlign: TextAlign.center,
-      // )),
-      backgroundColor: Colors.white,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Text(
+                'TeNeT',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('LOGIN'),
+              leading: Icon(Icons.login),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => login()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Color(0xFF2d2d2d),
       appBar: AppBar(
         title: brandName(),
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
+        // bottomNavigationBar: BottomNavigationBar(
+        //   items: const <BottomNavigationBarItem>[
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.home),
+        //       label: 'Home',
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.business),
+        //       label: 'Business',
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.school),
+        //       label: 'School',
+        //     ),
+        //   ],
+        // ),
         child: Container(
           child: Column(
             children: <Widget>[
@@ -72,7 +120,8 @@ class _HomeState extends State<Home> {
                       child: TextField(
                         controller: searchController,
                         decoration: InputDecoration(
-                            hintText: "Search", border: InputBorder.none),
+                            hintText: "Search Wallpaper",
+                            border: InputBorder.none),
                       ),
                     ),
                     InkWell(

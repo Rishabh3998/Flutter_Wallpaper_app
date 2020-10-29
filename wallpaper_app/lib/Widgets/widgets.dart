@@ -5,11 +5,11 @@ import 'package:wallpaper_app/views/imageview.dart';
 Widget brandName() {
   return RichText(
       text: TextSpan(
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
           children: <TextSpan>[
         TextSpan(
             text: "TeN",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800)),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900)),
         TextSpan(text: "eT", style: TextStyle(color: Colors.white)),
       ]));
 }
