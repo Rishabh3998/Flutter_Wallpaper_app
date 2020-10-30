@@ -46,122 +46,133 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
-              child: Text(
-                'TeNeT',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('LOGIN'),
-              leading: Icon(Icons.login),
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => login()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: new LinearGradient(
+            colors: [Colors.red[600], Colors.purple[900]],
+            begin: const FractionalOffset(0.5, 0.0),
+            end: const FractionalOffset(0.0, 0.5),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp),
       ),
-      backgroundColor: Color(0xFF2d2d2d),
-      appBar: AppBar(
-        title: brandName(),
-        elevation: 0.0,
-      ),
-      body: SingleChildScrollView(
-        // bottomNavigationBar: BottomNavigationBar(
-        //   items: const <BottomNavigationBarItem>[
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.home),
-        //       label: 'Home',
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.business),
-        //       label: 'Business',
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.school),
-        //       label: 'School',
-        //     ),
-        //   ],
-        // ),
-        child: Container(
-          child: Column(
+      child: Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
             children: <Widget>[
-              Container(
+              DrawerHeader(
                 decoration: BoxDecoration(
-                    color: Color(0xfff5f8fd),
-                    borderRadius: BorderRadius.circular(30)),
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                margin: EdgeInsets.symmetric(horizontal: 24, vertical: 15),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextField(
-                        controller: searchController,
-                        decoration: InputDecoration(
-                            hintText: "Search Wallpaper",
-                            border: InputBorder.none),
-                      ),
-                    ),
-                    InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Search(
-                                        searchQuery: searchController.text,
-                                      )));
-                        },
-                        child: Container(child: Icon(Icons.search)))
-                  ],
+                  color: Colors.black,
+                ),
+                child: Text(
+                  'TeNeT',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              SizedBox(
-                height: 10,
+              ListTile(
+                title: Text('LOGIN'),
+                leading: Icon(Icons.login),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => login()));
+                },
               ),
-              Container(
-                height: 80,
-                child: ListView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
-                  itemCount: categories.length,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  physics: ClampingScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    //wallpapers[index].src.portrait;
-                    return CategoriesTile(
-                      title: categories[index].categoriesName,
-                      imgUrl: categories[index].imgUrl,
-                    );
-                  },
-                ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Profile'),
               ),
-              SizedBox(
-                height: 16,
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
               ),
-              WallpapersList(wallpapers: wallpapers, context: context),
             ],
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: brandName(),
+          elevation: 0.0,
+        ),
+        body: SingleChildScrollView(
+          // bottomNavigationBar: BottomNavigationBar(
+          //   items: const <BottomNavigationBarItem>[
+          //     BottomNavigationBarItem(
+          //       icon: Icon(Icons.home),
+          //       label: 'Home',
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Icon(Icons.business),
+          //       label: 'Business',
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Icon(Icons.school),
+          //       label: 'School',
+          //     ),
+          //   ],
+          // ),
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xfff5f8fd),
+                      borderRadius: BorderRadius.circular(30)),
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  margin: EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: TextField(
+                          controller: searchController,
+                          decoration: InputDecoration(
+                              hintText: "Search Wallpaper",
+                              border: InputBorder.none),
+                        ),
+                      ),
+                      InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Search(
+                                          searchQuery: searchController.text,
+                                        )));
+                          },
+                          child: Container(child: Icon(Icons.search)))
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 80,
+                  child: ListView.builder(
+                    padding: EdgeInsets.symmetric(horizontal: 24),
+                    itemCount: categories.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    physics: ClampingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      //wallpapers[index].src.portrait;
+                      return CategoriesTile(
+                        title: categories[index].categoriesName,
+                        imgUrl: categories[index].imgUrl,
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                WallpapersList(wallpapers: wallpapers, context: context),
+              ],
+            ),
           ),
         ),
       ),
