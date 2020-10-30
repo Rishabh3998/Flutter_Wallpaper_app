@@ -93,7 +93,7 @@ class _SignupPageState extends State<SignupPage> {
                             height: 50.0,
                             child: Material(
                               borderRadius: BorderRadius.circular(30.0),
-                              shadowColor: Colors.greenAccent,
+                              shadowColor: Colors.indigoAccent,
                               color: Colors.indigo,
                               elevation: 7.0,
                               child: GestureDetector(

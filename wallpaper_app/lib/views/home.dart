@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
 
   getTrendingWallpapers() async {
     var response = await http.get(
-        "https://api.pexels.com/v1/curated?per_page=26",
+        "https://api.pexels.com/v1/curated?per_page=100",
         headers: {"Authorization": apiKey});
 
     // print(response.body.toString());
@@ -96,7 +96,9 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: brandName(),
-          elevation: 0.0,
+          elevation: 7.0,
+          shadowColor: Colors.transparent,
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           // bottomNavigationBar: BottomNavigationBar(
@@ -153,7 +155,7 @@ class _HomeState extends State<Home> {
                 Container(
                   height: 80,
                   child: ListView.builder(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     itemCount: categories.length,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -168,7 +170,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 0,
                 ),
                 WallpapersList(wallpapers: wallpapers, context: context),
               ],

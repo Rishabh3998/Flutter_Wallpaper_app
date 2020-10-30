@@ -4,19 +4,21 @@ import 'package:wallpaper_app/views/imageview.dart';
 
 Widget brandName() {
   return RichText(
+      textAlign: TextAlign.center,
       text: TextSpan(
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
           children: <TextSpan>[
-        TextSpan(
-            text: "TeN",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900)),
-        TextSpan(text: "eT", style: TextStyle(color: Colors.white)),
-      ]));
+            TextSpan(
+                text: "TeN",
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w900)),
+            TextSpan(text: "eT", style: TextStyle(color: Colors.white)),
+          ]));
 }
 
 Widget WallpapersList({List<Wallpaper_model> wallpapers, context}) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 16),
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
     child: GridView.count(
       shrinkWrap: true,
       physics: ClampingScrollPhysics(),
