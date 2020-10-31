@@ -1,10 +1,9 @@
-// import 'dart:html';
-// import 'dart:io';
-// import 'dart:typed_data';
-// import 'package:dio/dio.dart';
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-// import 'package:image_gallery_saver/image_gallery_saver.dart';
-// import 'package:permission_handler/permission_handler.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ImageView extends StatefulWidget {
   final String imgUrl;
@@ -39,8 +38,8 @@ class _ImageViewState extends State<ImageView> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () {
-                    // _save();
+                  onTap: () async {
+                    await _save();
                   },
                   child: Stack(
                     children: [
@@ -102,23 +101,22 @@ class _ImageViewState extends State<ImageView> {
     );
   }
 
-//   _save() async {
-//     if (Platform.isIOS) {
-//       await _askPermission();
-//     }
-//     var response = await Dio()
-//         .get(widget.imgUrl, options: Options(responseType: ResponseType.bytes));
-//     final result =
-//         await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
-//     print(result);
-//     Navigator.pop(context);
-//   }
+  _save() async {
+    if (Platform.isIOS) {
+      await _askPermission();
+    }
+    var response = await Dio()
+        .get(widget.imgUrl, options: Options(responseType: ResponseType.bytes));
+    final result =
+        await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+    print(result);
+    Navigator.pop(context);
+  }
 
-//   _askPermission() async {
-//     if (Platform.isAndroid) {
-//       Map<Permission, PermissionStatus> permissions =
-//           await [Permission.photos, Permission.storage].request();
-//     } else {}
-//   }
-// }
+  _askPermission() async {
+    if (Platform.isAndroid) {
+      Map<Permission, PermissionStatus> permissions =
+          await [Permission.photos, Permission.storage].request();
+    } else {}
+  }
 }

@@ -20,7 +20,7 @@ class _SearchState extends State<Search> {
 
   getSearchWallpapers(String query) async {
     var response = await http.get(
-        "https://api.pexels.com/v1/search?query=$query&per_page=100",
+        "https://api.pexels.com/v1/search?query=$query&per_page=30",
         headers: {"Authorization": apiKey});
 
     // print(response.body.toString());
@@ -48,7 +48,9 @@ class _SearchState extends State<Search> {
     return Scaffold(
       appBar: AppBar(
         title: brandName(),
-        elevation: 0.0,
+        elevation: 7.0,
+        shadowColor: Colors.grey,
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -56,7 +58,7 @@ class _SearchState extends State<Search> {
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(
-                    color: Color(0xfff5f8fd),
+                    color: Color(0xffe8e8e8),
                     borderRadius: BorderRadius.circular(30)),
                 padding: EdgeInsets.symmetric(horizontal: 24),
                 margin: EdgeInsets.symmetric(horizontal: 24, vertical: 15),

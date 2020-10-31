@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
 
   getTrendingWallpapers() async {
     var response = await http.get(
-        "https://api.pexels.com/v1/curated?per_page=100",
+        "https://api.pexels.com/v1/curated?per_page=30",
         headers: {"Authorization": apiKey});
 
     // print(response.body.toString());
@@ -47,14 +47,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: new LinearGradient(
-            colors: [Colors.red[600], Colors.purple[900]],
-            begin: const FractionalOffset(0.5, 0.0),
-            end: const FractionalOffset(0.0, 0.5),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
+      // decoration: BoxDecoration(
+      //   gradient: new LinearGradient(
+      //       colors: [Colors.red[600], Colors.purple[900]],
+      //       begin: const FractionalOffset(0.5, 0.0),
+      //       end: const FractionalOffset(0.0, 0.5),
+      //       stops: [0.0, 1.0],
+      //       tileMode: TileMode.clamp),
+      // ),
       child: Scaffold(
         drawer: Drawer(
           child: ListView(
@@ -92,12 +92,12 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black87,
           title: brandName(),
           elevation: 7.0,
-          shadowColor: Colors.transparent,
+          shadowColor: Colors.grey,
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -122,7 +122,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xfff5f8fd),
+                      color: Color(0xffe8e8e8),
                       borderRadius: BorderRadius.circular(30)),
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   margin: EdgeInsets.symmetric(horizontal: 24, vertical: 15),

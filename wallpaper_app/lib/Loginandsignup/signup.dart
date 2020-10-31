@@ -9,18 +9,18 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        gradient: new LinearGradient(
-            colors: [Colors.red[400], Colors.blue[200]],
-            begin: const FractionalOffset(0.5, 0.0),
-            end: const FractionalOffset(0.0, 0.5),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
+      // padding: EdgeInsets.all(15),
+      // decoration: BoxDecoration(
+      //   gradient: new LinearGradient(
+      //       colors: [Colors.red[400], Colors.blue[200]],
+      //       begin: const FractionalOffset(0.5, 0.0),
+      //       end: const FractionalOffset(0.0, 0.5),
+      //       stops: [0.0, 1.0],
+      //       tileMode: TileMode.clamp),
+      // ),
       child: new Scaffold(
           resizeToAvoidBottomPadding: false,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -36,13 +36,13 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.fromLTRB(260.0, 125.0, 0.0, 0.0),
+                        padding: EdgeInsets.fromLTRB(245.0, 125.0, 0.0, 0.0),
                         child: Text(
                           '...',
                           style: TextStyle(
                               fontSize: 80.0,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                              color: Colors.green),
                         ),
                       )
                     ],
@@ -59,7 +59,7 @@ class _SignupPageState extends State<SignupPage> {
                               labelStyle: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.grey),
                               // hintText: 'EMAIL',
                               // hintStyle: ,
                               focusedBorder: UnderlineInputBorder(
@@ -72,7 +72,7 @@ class _SignupPageState extends State<SignupPage> {
                               labelStyle: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.grey),
                               focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.green))),
                           obscureText: true,
@@ -84,7 +84,7 @@ class _SignupPageState extends State<SignupPage> {
                               labelStyle: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.grey),
                               focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.green))),
                         ),
@@ -93,8 +93,8 @@ class _SignupPageState extends State<SignupPage> {
                             height: 50.0,
                             child: Material(
                               borderRadius: BorderRadius.circular(30.0),
-                              shadowColor: Colors.indigoAccent,
-                              color: Colors.indigo,
+                              shadowColor: Colors.greenAccent,
+                              color: Colors.green,
                               elevation: 7.0,
                               child: GestureDetector(
                                 onTap: () {},
@@ -118,7 +118,7 @@ class _SignupPageState extends State<SignupPage> {
                                 border: Border.all(
                                     color: Colors.black,
                                     style: BorderStyle.solid,
-                                    width: 1.0),
+                                    width: 1.5),
                                 color: Colors.transparent,
                                 borderRadius: BorderRadius.circular(30.0)),
                             child: InkWell(

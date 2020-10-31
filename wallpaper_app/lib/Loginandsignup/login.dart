@@ -10,18 +10,18 @@ class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        gradient: new LinearGradient(
-            colors: [Colors.red[400], Colors.blue[200]],
-            begin: const FractionalOffset(0.5, 0.0),
-            end: const FractionalOffset(0.0, 0.5),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
+      // padding: EdgeInsets.all(15),
+      // decoration: BoxDecoration(
+      //   gradient: new LinearGradient(
+      //       colors: [Colors.red[400], Colors.blue[200]],
+      //       begin: const FractionalOffset(0.5, 0.0),
+      //       end: const FractionalOffset(0.0, 0.5),
+      //       stops: [0.0, 1.0],
+      //       tileMode: TileMode.clamp),
+      // ),
       child: new Scaffold(
         resizeToAvoidBottomPadding: false,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,7 +31,7 @@ class _loginState extends State<login> {
                   Container(
                     padding: EdgeInsets.fromLTRB(15.0, 120.0, 0.0, 0.0),
                     child: Text(
-                      'TeNeT',
+                      ' TeNeT',
                       style: TextStyle(
                           fontSize: 70.0, fontWeight: FontWeight.w900),
                     ),
@@ -45,13 +45,13 @@ class _loginState extends State<login> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(280.0, 175.0, 0.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(240.0, 175.0, 0.0, 0.0),
                     child: Text(
                       '...',
                       style: TextStyle(
                           fontSize: 80.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          color: Colors.green),
                     ),
                   ),
                 ],
@@ -69,7 +69,7 @@ class _loginState extends State<login> {
                             fontSize: 25,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.green))),
                   )
@@ -88,10 +88,10 @@ class _loginState extends State<login> {
                         labelText: 'Password',
                         hintText: '**********',
                         labelStyle: TextStyle(
-                            fontSize: 20,
+                            fontSize: 23,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.green))),
                     obscureText: true,
@@ -104,10 +104,10 @@ class _loginState extends State<login> {
                     padding: EdgeInsets.only(top: 15, left: 20),
                     child: InkWell(
                       child: Text(
-                        'Forgot Password',
+                        'Forgot Password ?',
                         style: TextStyle(
                             fontSize: 18,
-                            color: Colors.deepPurple,
+                            color: Colors.green,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Montserrat',
                             decoration: TextDecoration.underline),
@@ -121,8 +121,8 @@ class _loginState extends State<login> {
                     height: 50,
                     child: Material(
                       borderRadius: BorderRadius.circular(30),
-                      shadowColor: Colors.indigoAccent,
-                      color: Colors.indigo,
+                      shadowColor: Colors.greenAccent,
+                      color: Colors.green,
                       elevation: 7.0,
                       child: GestureDetector(
                         onTap: () {},
@@ -149,7 +149,7 @@ class _loginState extends State<login> {
                         border: Border.all(
                             color: Colors.black,
                             style: BorderStyle.solid,
-                            width: 1.0),
+                            width: 1.5),
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -204,7 +204,7 @@ class _loginState extends State<login> {
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w900,
-                        color: Colors.indigo,
+                        color: Colors.green,
                         fontFamily: 'Montserrat',
                         decoration: TextDecoration.underline),
                   ),
