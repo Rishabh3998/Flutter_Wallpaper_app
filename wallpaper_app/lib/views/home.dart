@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wallpaper_app/Loginandsignup/login.dart';
+import 'package:wallpaper_app/Loginandsignup/signup.dart';
 import 'package:wallpaper_app/Widgets/widgets.dart';
 import 'package:wallpaper_app/data/data.dart';
 import 'package:wallpaper_app/data/model/categoriesmodel.dart';
@@ -44,6 +46,11 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
+  var _pagesData = [
+    login(),
+    SignupPage(),
+  ];
+  int _selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,23 +107,54 @@ class _HomeState extends State<Home> {
           shadowColor: Colors.grey,
           centerTitle: true,
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.grey,
+          iconSize: 24.0,
+          // backgroundColor: Colors.blue,
+          elevation: 50.0,
+          showUnselectedLabels: true,
+          selectedIconTheme: IconThemeData(
+            size: 24,
+            color: Colors.black,
+          ),
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_sharp),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Saved',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.login),
+              label: 'Login',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              label: 'About',
+            ),
+          ],
+          currentIndex: _selectedItem,
+          selectedItemColor: Colors.black,
+          onTap: (int index) {
+            setState(() {
+              // int index;
+              _selectedItem = index;
+              // _pagesData[_selectedItem];
+              // if () {
+              //   Navigator.push(
+              //       context, MaterialPageRoute(builder: (context) => login()));
+              // }
+            });
+          },
+        ),
         body: SingleChildScrollView(
-          // bottomNavigationBar: BottomNavigationBar(
-          //   items: const <BottomNavigationBarItem>[
-          //     BottomNavigationBarItem(
-          //       icon: Icon(Icons.home),
-          //       label: 'Home',
-          //     ),
-          //     BottomNavigationBarItem(
-          //       icon: Icon(Icons.business),
-          //       label: 'Business',
-          //     ),
-          //     BottomNavigationBarItem(
-          //       icon: Icon(Icons.school),
-          //       label: 'School',
-          //     ),
-          //   ],
-          // ),
           child: Container(
             child: Column(
               children: <Widget>[
