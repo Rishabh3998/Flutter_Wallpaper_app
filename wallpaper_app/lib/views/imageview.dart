@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
@@ -115,8 +116,12 @@ class _ImageViewState extends State<ImageView> {
 
   _askPermission() async {
     if (Platform.isAndroid) {
-      Map<Permission, PermissionStatus> permissions =
-          await [Permission.photos, Permission.storage].request();
+      // Map<Permissions, PermissionStatus> permissions =
+      //     await [Permission.photos, Permission.storage].request();
+      Map<Permission, PermissionStatus> permissions = await [
+        Permission.photos,
+        Permission.storage,
+      ].request();
     } else {}
   }
 }
