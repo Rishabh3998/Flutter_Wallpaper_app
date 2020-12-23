@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
