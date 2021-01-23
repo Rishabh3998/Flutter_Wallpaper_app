@@ -64,33 +64,64 @@ class _HomeState extends State<Home> {
       // ),
       child: Scaffold(
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
+          child: Column(
             children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                ),
-                child: Text(
-                  'TeNeT',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+              Container(
+                color: Theme.of(context).primaryColor,
+                padding: EdgeInsets.only(top: 10.0, bottom: 30),
+                width: double.infinity,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      color: Theme.of(context).primaryColor,
+                      width: double.infinity,
+                      padding:
+                          EdgeInsets.only(left: 20.0, top: 30.0, bottom: 10),
+                      child: Text(
+                        'TeNeT',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: NetworkImage(
+                                "https://insomniac.games/wp-content/uploads/2018/09/Spider-Man_PS4_Selfie_Photo_Mode_LEGAL.jpg")),
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               ListTile(
-                title: Text('LOGIN'),
-                leading: Icon(Icons.login),
+                leading: Icon(Icons.home_filled),
+                title: Text('Home'),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => login()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
                 },
               ),
               ListTile(
                 leading: Icon(Icons.account_circle),
                 title: Text('Profile'),
+              ),
+              ListTile(
+                title: Text('LogIn'),
+                leading: Icon(Icons.login),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => login()));
+                },
               ),
               ListTile(
                 leading: Icon(Icons.settings),
