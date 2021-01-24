@@ -8,8 +8,12 @@ import 'package:wallpaper_app/data/data.dart';
 import 'package:wallpaper_app/data/model/categoriesmodel.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallpaper_app/data/model/model.dart';
+import 'package:wallpaper_app/views/about.dart';
 import 'package:wallpaper_app/views/category.dart';
+import 'package:wallpaper_app/views/profile.dart';
+import 'package:wallpaper_app/views/saved.dart';
 import 'package:wallpaper_app/views/search.dart';
+import 'package:wallpaper_app/views/settings.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -47,21 +51,16 @@ class _HomeState extends State<Home> {
   }
 
   var _pagesData = [
+    Home(),
+    profile(),
+    saved(),
     login(),
-    SignupPage(),
+    about(),
   ];
   int _selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      // decoration: BoxDecoration(
-      //   gradient: new LinearGradient(
-      //       colors: [Colors.red[600], Colors.purple[900]],
-      //       begin: const FractionalOffset(0.5, 0.0),
-      //       end: const FractionalOffset(0.0, 0.5),
-      //       stops: [0.0, 1.0],
-      //       tileMode: TileMode.clamp),
-      // ),
       child: Scaffold(
         drawer: Drawer(
           child: Column(
@@ -114,6 +113,10 @@ class _HomeState extends State<Home> {
               ListTile(
                 leading: Icon(Icons.account_circle),
                 title: Text('Profile'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => profile()));
+                },
               ),
               ListTile(
                 title: Text('LogIn'),
@@ -126,6 +129,18 @@ class _HomeState extends State<Home> {
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Settings'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => settings()));
+                },
+              ),
+              ListTile(
+                title: Text('About'),
+                leading: Icon(Icons.info),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => about()));
+                },
               ),
             ],
           ),
@@ -180,7 +195,7 @@ class _HomeState extends State<Home> {
               // _pagesData[_selectedItem];
               // if () {
               //   Navigator.push(
-              //       context, MaterialPageRoute(builder: (context) => login()));
+              //       context, MaterialPageRoute(builder: (context) => ()));
               // }
             });
           },

@@ -147,9 +147,10 @@ class _loginState extends State<login> {
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                            color: Colors.black,
-                            style: BorderStyle.solid,
-                            width: 1.5),
+                          color: Colors.black,
+                          style: BorderStyle.solid,
+                          width: 1.5,
+                        ),
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -157,14 +158,14 @@ class _loginState extends State<login> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: ImageIcon(AssetImage('asset/facebook.png')),
+                            child: ImageIcon(AssetImage('asset/Google.jpg')),
                           ),
                           SizedBox(
                             width: 10,
                           ),
                           Center(
                             child: Text(
-                              'LogIn With Facebook',
+                              'LogIn With Google',
                               style: TextStyle(
                                   fontWeight: FontWeight.w900,
                                   fontFamily: 'Montserrat'),
