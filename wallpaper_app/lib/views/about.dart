@@ -155,6 +155,44 @@ class _aboutState extends State<about> {
             });
           },
         ),
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: Container(
+            // width: 200,
+            // height: 200,
+            padding: EdgeInsets.only(top: 30, left: 20, right: 20),
+            child: Text(
+              "TeNet is an App from where you can download wallpapers for your smartphone.",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage("asset/1.jpg"),
+            ),
+          ),
+          // child: Column(
+          //   children: <Widget>[
+          //     Container(
+          //       width: double.infinity,
+          //       height: double.infinity,
+          //       child: Text(
+          //         "Hello World",
+          //         style: TextStyle(
+          //           color: Colors.white,
+          //           fontSize: 20,
+          //           fontWeight: FontWeight.bold,
+          //         ),
+          //       ),
+          //     )
+          //   ],
+          // ),
+        ),
       ),
     );
   }
