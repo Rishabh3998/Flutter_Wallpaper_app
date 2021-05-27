@@ -19,7 +19,7 @@ class _SignupPageState extends State<SignupPage> {
       //       tileMode: TileMode.clamp),
       // ),
       child: new Scaffold(
-          resizeToAvoidBottomPadding: false,
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.white,
           body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

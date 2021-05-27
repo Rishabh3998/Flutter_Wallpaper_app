@@ -15,7 +15,7 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  List<Wallpaper_model> wallpapers = new List();
+  List<Wallpaper_model> wallpapers = [];
   TextEditingController searchController = new TextEditingController();
 
   getSearchWallpapers(String query) async {

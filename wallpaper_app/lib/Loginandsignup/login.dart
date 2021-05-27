@@ -20,7 +20,7 @@ class _loginState extends State<login> {
       //       tileMode: TileMode.clamp),
       // ),
       child: new Scaffold(
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,9 +1,10 @@
 import 'package:wallpaper_app/data/model/categoriesmodel.dart';
 
 String apiKey = "563492ad6f9170000100000145be725d7ff14f27b7a7b64e07d100c7";
+// String apiKey = "563492ad6f91700001000001e9ddd918fdd84dadb56051af3f7e477e";
 
 List<CategoriesModel> getCategories() {
-  List<CategoriesModel> categories = new List();
+  List<CategoriesModel> categories = [];
   CategoriesModel categoriesModel = new CategoriesModel();
 
   categoriesModel.imgUrl =

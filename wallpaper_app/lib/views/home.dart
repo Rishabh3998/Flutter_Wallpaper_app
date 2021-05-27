@@ -21,8 +21,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<CategoriesModel> categories = new List();
-  List<Wallpaper_model> wallpapers = new List();
+  List<CategoriesModel> categories = [];
+  List<Wallpaper_model> wallpapers = [];
   TextEditingController searchController = new TextEditingController();
 
   getTrendingWallpapers() async {

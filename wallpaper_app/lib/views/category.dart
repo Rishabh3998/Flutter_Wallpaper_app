@@ -19,7 +19,7 @@ class _CategoryState extends State<Category> {
   //   return Scaffold();
   // }
 
-  List<Wallpaper_model> wallpapers = new List();
+  List<Wallpaper_model> wallpapers = [];
 
   getSearchWallpapers(String query) async {
     var response = await http.get(
